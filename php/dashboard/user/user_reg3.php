@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Registration - Dashboard</title>
-    <link href="/assets/img/logo_icon.png" rel="icon">
-    <link rel="stylesheet" href="/assets/css/dashboard.css" />
+    <link href="../../../assets/img/logo_icon.png" rel="icon">
+    <link rel="stylesheet" href="../../../assets/css/dashboard.css" />
   </head>
   <body>
     <!-- navbar -->
@@ -35,7 +35,7 @@
           <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
           <!-- start -->
           <li class="item">
-            <a href="/dashboard/user/home.html" class="nav_link">
+            <a href="../../../php/dashboard/user/home.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
@@ -59,7 +59,7 @@
         <ul class="menu_items">
           <div class="menu_title menu_setting"></div>
           <li class="item">
-            <a href="/login.html" class="nav_link">
+            <a href="../../../php/login.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-log-out"></i>
               </span>
@@ -110,8 +110,9 @@
               <label>Category</label>
               <select name="subject">
                 <option disabled="disabled" selected="selected">Choose Category</option>
-                <option>5 Members</option>
-                <option>10 Members</option>
+                <option>Solo</option>
+                <option>Duo</option>
+                <option>Group</option>
               </select>
 
               <input type="submit" value="Submit">
@@ -121,6 +122,6 @@
     </section>
 
     <!-- JavaScript -->
-    <script src="/assets/js/dashboard.js"></script>
+    <script src="../../../assets/js/dashboard.js"></script>
   </body>
 </html>

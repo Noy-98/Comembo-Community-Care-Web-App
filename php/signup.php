@@ -96,7 +96,7 @@
       }
       ?>
 
-      <form method="post" action="../db_con/signup.php">
+      <form method="post" action="../db_con/signup_con.php">
         <div class="txt_field">
           <input type="text" name="first_name" required>
           <span></span>
@@ -113,14 +113,16 @@
           <label>Mobile Number</label>
         </div>
         <div class="txt_field">
-          <input type="password" name="password" required>
+          <input type="password" id="password" name="password" required>
           <span></span>
           <label>Password</label>
+          <i class="bi bi-eye-slash" id="togglePassword1"></i>
         </div>
         <div class="txt_field">
-          <input type="password" name="confirm_password" required>
+          <input type="password" id="confirm_password" name="confirm_password" required>
           <span></span>
           <label>Confirm Password</label>
+          <i class="bi bi-eye-slash" id="togglePassword2"></i>
         </div>
         <input type="submit" value="Signup">
         <div class="signup_link">

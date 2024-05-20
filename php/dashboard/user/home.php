@@ -9,9 +9,9 @@
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Home - Dashboard</title>
-    <link href="/assets/img/logo_icon.png" rel="icon">
-    <link rel="stylesheet" href="/assets/css/dashboard.css" />
-    <link rel="stylesheet" href="/assets/css/section.css"/>
+    <link href="../../../assets/img/logo_icon.png" rel="icon">
+    <link rel="stylesheet" href="../../../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../../../assets/css/section.css"/>
   </head>
   <body>
     <!-- navbar -->
@@ -36,7 +36,7 @@
           <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
           <!-- start -->
           <li class="item active">
-            <a href="/dashboard/user/home.html" class="nav_link">
+            <a href="../../../php/dashboard/user/home.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
@@ -60,7 +60,7 @@
         <ul class="menu_items">
           <div class="menu_title menu_setting"></div>
           <li class="item">
-            <a href="/login.html" class="nav_link">
+            <a href="../../../php/login.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-log-out"></i>
               </span>
@@ -88,30 +88,30 @@
           <div class="d-flex flex-row row">
               <div class="col-sm-12 col-lg-4">
                   <div class="icon-box">
-                      <div class="icon"><img src="/assets/img/blog1.jpg"/></div>
+                      <div class="icon"><img src="../../../assets/img/blog1.jpg"/></div>
                       <h4><a href="https://www.facebook.com/photo/?fbid=122143414580137909&set=a.122103264464137909" target="_blank">𝙏𝘼𝙍𝘼 𝙉𝘼’𝙏 𝙈𝘼𝙆𝙄𝙎𝘼𝙔𝘼, 𝙈𝘼𝙆𝙄𝙇𝘼𝙃𝙊𝙆, 𝘼𝙏 𝙈𝘼𝙂-𝙀𝙉𝙅𝙊𝙔 𝙎𝘼 𝘼𝙏𝙄𝙉𝙂 𝙋𝘼𝙇𝘼𝙍𝙊𝙉𝙂 𝙋𝙄𝙉𝙊𝙔</a></h4>
                       <p>Ito ay isang espesyal na selebrasyon na hatid ng Sangguniang Kabataan - Comembo Council para sa ika-67 anibersaryo ng ating minamahal na Barangay. Ang aktibidad na ito ay walang sawang sinuportahan ng ating Inang Lungsod, Mayor Lani Cayetano.</p>
-                      <a href="/dashboard/user/user_reg1.html" class="read-more"><span>Register?...</span><i class="bi bi-arrow-right"></i></a>
+                      <a href="../../../php/dashboard/user/user_reg1.php" class="read-more"><span>Register?...</span><i class="bi bi-arrow-right"></i></a>
                   </div>
               </div>
 
               <div class="col-sm-12 col-lg-4">
                   <div class="icon-box">
-                      <div class="icon"><img src="/assets/img/blog2.jpg"/></div>
+                      <div class="icon"><img src="../../../assets/img/blog2.jpg"/></div>
                       <h4><a href="https://www.facebook.com/photo/?fbid=122141917880137909&set=a.122126271146137909" target="_blank">CALLING ALL FITNESS ENTHUSIASTS! 📣</a></h4>
                       <p>Open to ages 15 years old and above, living in Barangay Comembo. In the form of a group with 5 members minimum and 10 members maximum.</p>
                       <p>‼️ Per group, we allow at least 80% of your members to be from Barangay Comembo.</p>
-                      <a href="/dashboard/user/user_reg2.html" class="read-more"><span>Register?...</span><i class="bi bi-arrow-right"></i></a>
+                      <a href="../../../php/dashboard/user/user_reg2.php" class="read-more"><span>Register?...</span><i class="bi bi-arrow-right"></i></a>
                   </div>
               </div>
 
               <div class="col-sm-12 col-lg-4">
                   <div class="icon-box">
-                    <div class="icon"><img src="/assets/img/blog3.jpg"/></div>
+                    <div class="icon"><img src="../../../assets/img/blog3.jpg"/></div>
                       <h4><a href="https://www.facebook.com/photo/?fbid=122141669678137909&set=a.122126271146137909" target="_blank">SAYAW? KANTA? RAP? P’wedeng p’wede ka sumali kahit anong talento pa ‘yan! 🤗</a></h4>
                       <p>Sa mga interesado po na mag-audition, mangyari lang po ng pumunta sa Barangay Comembo, Mamancat Hall ngayong araw ng 1:00 PM.</p>
                       <p>Para sa inyong mga tugtog na gagamitin, mangyari lang po na pakidala ang inyong USB na naglalaman ng audio file.</p>
-                      <a href="/dashboard/user/user_reg3.html" class="read-more"><span>Register?...</span><i class="bi bi-arrow-right"></i></a>
+                      <a href="../../../php/dashboard/user/user_reg3.php" class="read-more"><span>Register?...</span><i class="bi bi-arrow-right"></i></a>
                   </div>
               </div>
           </div>
@@ -119,6 +119,6 @@
       </div>
   </section>
     <!-- JavaScript -->
-    <script src="/assets/js/dashboard.js"></script>
+    <script src="../../../assets/js/dashboard.js"></script>
   </body>
 </html>

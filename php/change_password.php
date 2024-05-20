@@ -81,7 +81,7 @@
 
   <section id="login">
     <div class="center">
-      <h1>Forgot Password</h1>
+      <h1>Change Password</h1>
       <!-- Validation message section -->
       <?php
       session_start(); // Start the session
@@ -98,11 +98,18 @@
         unset($_SESSION['success']); // Clear the success message
       }
       ?>
-      <form method="post" action="../db_con/forgot_password_con.php">
+      <form method="post" action="../db_con/change_password_con.php">
         <div class="txt_field">
-          <input type="number" name="mobile_number" required>
+          <input type="password" id="password" name="password" required>
           <span></span>
-          <label>Mobile Number</label>
+          <label>Password</label>
+          <i class="bi bi-eye-slash" id="togglePassword1"></i>
+        </div>
+        <div class="txt_field">
+          <input type="password" id="confirm_password" name="confirm_password" required>
+          <span></span>
+          <label>Confirm Password</label>
+          <i class="bi bi-eye-slash" id="togglePassword2"></i>
         </div>
         <input type="submit" value="Next">
         <div class="signup_link">

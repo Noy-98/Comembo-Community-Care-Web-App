@@ -1371,6 +1371,14 @@ section,
 #login .txt_field input:valid ~ span::before{
   width: 100%;
 }
+.txt_field i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #333;
+}
 #login .pass{
   margin: -5px 0 20px 5px;
   color: #a6a6a6;

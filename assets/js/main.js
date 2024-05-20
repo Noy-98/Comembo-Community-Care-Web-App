@@ -187,4 +187,26 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Password toggle visibility
+   */
+  document.addEventListener('DOMContentLoaded', function () {
+    const togglePassword1 = document.getElementById('togglePassword1');
+    const togglePassword2 = document.getElementById('togglePassword2');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm_password');
+  
+    togglePassword1.addEventListener('click', function () {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      this.classList.toggle('bi-eye');
+    });
+  
+    togglePassword2.addEventListener('click', function () {
+      const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+      confirmPassword.setAttribute('type', type);
+      this.classList.toggle('bi-eye');
+    });
+  });  
+  
 })();

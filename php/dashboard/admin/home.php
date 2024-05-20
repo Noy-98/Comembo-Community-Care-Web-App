@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Announcement - Admin Dashboard</title>
-    <link href="/assets/img/logo_icon.png" rel="icon">
-    <link rel="stylesheet" href="/assets/css/dashboard.css" />
+	  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home - Admin Dashboard</title>
+    <link href="../../../assets/img/logo_icon.png" rel="icon">
+    <link rel="stylesheet" href="../../../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../../../assets/css/section.css"/>
   </head>
   <body>
     <!-- navbar -->
@@ -33,8 +34,8 @@
           <div class="menu_title menu_dahsboard"></div>
           <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
           <!-- start -->
-          <li class="item">
-            <a href="/dashboard/admin/home.html" class="nav_link">
+          <li class="item active">
+            <a href="../../../php/dashboard/admin/home.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
@@ -46,8 +47,8 @@
         <ul class="menu_items">
           <div class="menu_title menu_editor"></div>
           <!-- duplicate these li tag if you want to add or remove navlink only -->
-          <li class="item active">
-            <a href="/dashboard/admin/announcement.html" class="nav_link">
+          <li class="item">
+            <a href="../../../php/dashboard/admin/announcement.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-info-circle"></i>
               </span>
@@ -55,7 +56,7 @@
             </a>
           </li>
           <li class="item">
-            <a href="/dashboard/admin/user_reg.html" class="nav_link">
+            <a href="../../../php/dashboard/admin/user_reg.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-clipboard"></i>
               </span>
@@ -66,7 +67,7 @@
         <ul class="menu_items">
           <div class="menu_title menu_setting"></div>
           <li class="item">
-            <a href="/login.html" class="nav_link">
+            <a href="../../../php/login.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-log-out"></i>
               </span>
@@ -89,30 +90,45 @@
     </nav>
 
     <!-- Section -->
-    <section id="sec_announce">
-        <div class="container">
-            <form action="action_page.php">
-          
-              <label>Title</label>
-              <input type="text" id="fname" name="firstname" placeholder="Announcement Title..">
-          
-              <label>Date</label>
-              <input type="text" id="lname" name="lastname" placeholder="Announcement Date..">
-
-              <label>Time</label>
-              <input type="text" id="lname" name="lastname" placeholder="Announcement Time..">
-          
-              <label>Subject</label>
-              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-          
-              <input type="submit" value="Add Picture/Video">
-              <input type="submit" value="Submit">
-          
-            </form>
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-wrap">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>ID no.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile Number</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="alert" role="alert">
+                    <td scope="row"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <a href="#" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
+        </div>
+      </div>
     </section>
-
     <!-- JavaScript -->
-    <script src="/assets/js/dashboard.js"></script>
+    <script src="../../../assets/js/dashboard.js"></script>
+    <script src="../../../assets/js/section_content/jquery.min.js"></script>
+  <script src="../../../assets/js/section_content/popper.js"></script>
+  <script src="../../../assets/js/section_content/bootstrap.min.js"></script>
+  <script src="../../../assets/js/section_content/main.js"></script>
   </body>
 </html>

@@ -81,7 +81,7 @@
 
   <section id="login">
     <div class="center">
-      <h1>Forgot Password</h1>
+      <h1>OTP</h1>
       <!-- Validation message section -->
       <?php
       session_start(); // Start the session
@@ -98,11 +98,11 @@
         unset($_SESSION['success']); // Clear the success message
       }
       ?>
-      <form method="post" action="../db_con/forgot_password_con.php">
+      <form method="post" action="../db_con/otp_con.php">
         <div class="txt_field">
-          <input type="number" name="mobile_number" required>
+          <input type="number" name="otp" required>
           <span></span>
-          <label>Mobile Number</label>
+          <label>Enter your OTP Code</label>
         </div>
         <input type="submit" value="Next">
         <div class="signup_link">

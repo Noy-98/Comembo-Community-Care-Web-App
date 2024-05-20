@@ -8,9 +8,9 @@
 	  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>User Logs - Admin Dashboard</title>
-    <link href="/assets/img/logo_icon.png" rel="icon">
-    <link rel="stylesheet" href="/assets/css/dashboard.css" />
-    <link rel="stylesheet" href="/assets/css/section.css">
+    <link href="../../../assets/img/logo_icon.png" rel="icon">
+    <link rel="stylesheet" href="../../../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../../../assets/css/section.css">
   </head>
   <body>
     <!-- navbar -->
@@ -35,7 +35,7 @@
           <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
           <!-- start -->
           <li class="item">
-            <a href="/dashboard/admin/home.html" class="nav_link">
+            <a href="../../../php/dashboard/admin/home.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
@@ -48,7 +48,7 @@
           <div class="menu_title menu_editor"></div>
           <!-- duplicate these li tag if you want to add or remove navlink only -->
           <li class="item">
-            <a href="/dashboard/admin/announcement.html" class="nav_link">
+            <a href="../../../php/dashboard/admin/announcement.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-info-circle"></i>
               </span>
@@ -56,7 +56,7 @@
             </a>
           </li>
           <li class="item">
-            <a href="/dashboard/admin/user_reg.html" class="nav_link">
+            <a href="../../../php/dashboard/admin/user_reg.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-clipboard"></i>
               </span>
@@ -67,7 +67,7 @@
         <ul class="menu_items">
           <div class="menu_title menu_setting"></div>
           <li class="item">
-            <a href="/login.html" class="nav_link">
+            <a href="../../../php/login.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-log-out"></i>
               </span>
@@ -135,10 +135,10 @@
       </div>
     </section>
     <!-- JavaScript -->
-    <script src="/assets/js/dashboard.js"></script>
-    <script src="/assets/js/section_content/jquery.min.js"></script>
-  <script src="/assets/js/section_content/popper.js"></script>
-  <script src="/assets/js/section_content/bootstrap.min.js"></script>
-  <script src="/assets/js/section_content/main.js"></script>
+    <script src="../../../assets/js/dashboard.js"></script>
+    <script src="../../../assets/js/section_content/jquery.min.js"></script>
+  <script src="../../../assets/js/section_content/popper.js"></script>
+  <script src="../../../assets/js/section_content/bootstrap.min.js"></script>
+  <script src="../../../assets/js/section_content/main.js"></script>
   </body>
 </html>

@@ -14,9 +14,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,8 +38,7 @@
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>0917 144 0735</span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
-          <a href="https://www.facebook.com/profile.php?id=61555165777821" class="facebook"><i
-              class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61555165777821" class="facebook"><i class="bi bi-facebook"></i></a>
           <a href=""><i class="bi bi-twitter"></i></a>
           <a href=""><i class="bi bi-instagram"></i></a>
         </div>
@@ -82,16 +79,33 @@
   <section id="login">
     <div class="center">
       <h1>Login</h1>
-      <form method="post">
+      <!-- Validation message section -->
+      <?php
+      session_start(); // Start the session
+
+      // Check if there are any error messages
+      if (isset($_SESSION['error'])) {
+        echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
+        unset($_SESSION['error']); // Clear the error message
+      }
+
+      // Check if there are any success messages
+      if (isset($_SESSION['success'])) {
+        echo '<div class="success-message">' . $_SESSION['success'] . '</div>';
+        unset($_SESSION['success']); // Clear the success message
+      }
+      ?>
+      <form method="post" action="../db_con/login_con.php">
         <div class="txt_field">
-          <input type="number" required>
+          <input type="number" name="mobile_number" required>
           <span></span>
           <label>Mobile Number</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" id="password" name="password" required>
           <span></span>
           <label>Password</label>
+          <i class="bi bi-eye-slash" id="togglePassword1"></i>
         </div>
         <div class="pass"><a href="../php/forgot_password.php">Forgot Password?</a></div>
         <input type="submit" value="Login">
@@ -170,8 +184,7 @@
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
