@@ -91,7 +91,7 @@
 
       // Check if there are any success messages
       if (isset($_SESSION['success'])) {
-        echo '<div class="success-message">' . $_SESSION['success'] . '</div>';
+        echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
         unset($_SESSION['success']); // Clear the success message
       }
       ?>

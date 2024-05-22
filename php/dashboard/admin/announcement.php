@@ -55,11 +55,11 @@
             </a>
           </li>
           <li class="item">
-            <a href="../../../php/dashboard/admin/user_reg.php" class="nav_link">
+            <a href="../../../php/dashboard/admin/event_reg.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-clipboard"></i>
               </span>
-              <span class="navlink">User Registration</span>
+              <span class="navlink">Event Registration</span>
             </a>
           </li>
         </ul>

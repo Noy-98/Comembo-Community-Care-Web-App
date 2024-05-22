@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 	  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>User Logs - Admin Dashboard</title>
+    <title>Event Registration - Admin Dashboard</title>
     <link href="../../../assets/img/logo_icon.png" rel="icon">
     <link rel="stylesheet" href="../../../assets/css/dashboard.css" />
     <link rel="stylesheet" href="../../../assets/css/section.css">
@@ -60,7 +60,7 @@
               <span class="navlink_icon">
                 <i class="bx bx-clipboard"></i>
               </span>
-              <span class="navlink">User Registration</span>
+              <span class="navlink">Event Registration</span>
             </a>
           </li>
         </ul>

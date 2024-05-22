@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+    header('Location: dashboard/admin/home.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -81,20 +88,23 @@
       <h1>Login</h1>
       <!-- Validation message section -->
       <?php
-      session_start(); // Start the session
+      if (session_status() == PHP_SESSION_NONE) {
+        session_start(); // Start the session if it hasn't started
+      }
 
-      // Check if there are any error messages
+      // Display error messages
       if (isset($_SESSION['error'])) {
         echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
         unset($_SESSION['error']); // Clear the error message
       }
 
-      // Check if there are any success messages
+      // Display success messages
       if (isset($_SESSION['success'])) {
-        echo '<div class="success-message">' . $_SESSION['success'] . '</div>';
+        echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
         unset($_SESSION['success']); // Clear the success message
       }
       ?>
+
       <form method="post" action="../db_con/login_con.php">
         <div class="txt_field">
           <input type="number" name="mobile_number" required>
