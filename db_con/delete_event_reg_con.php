@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
     // Prepare and execute the delete statement
-    $stmt = $conn->prepare("DELETE FROM user WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM event_reg WHERE id = ?");
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
@@ -30,6 +30,6 @@ if (isset($_GET['id'])) {
 
 $conn->close();
 
-header('Location: /Comembo-Community-Care-Web-App/php/dashboard/admin/home.php');
+header('Location: /Comembo-Community-Care-Web-App/php/dashboard/admin/event_reg.php');
 exit();
 ?>

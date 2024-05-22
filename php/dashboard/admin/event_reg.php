@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
+  header('Location: ../../login.php');
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,7 +74,7 @@
         <ul class="menu_items">
           <div class="menu_title menu_setting"></div>
           <li class="item">
-            <a href="../../../php/login.php" class="nav_link">
+            <a href="../../../db_con/logout_con.php" class="nav_link">
               <span class="navlink_icon">
                 <i class="bx bx-log-out"></i>
               </span>
@@ -91,6 +98,26 @@
 
     <!-- Section -->
     <section class="ftco-section">
+    <div class="message">
+      <!-- Validation message section -->
+      <?php
+      if (session_status() == PHP_SESSION_NONE) {
+        session_start(); // Start the session if it hasn't started
+      }
+
+      // Display error messages
+      if (isset($_SESSION['error'])) {
+        echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
+        unset($_SESSION['error']); // Clear the error message
+      }
+
+      // Display success messages
+      if (isset($_SESSION['success'])) {
+        echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
+        unset($_SESSION['success']); // Clear the success message
+      }
+      ?>
+    </div>
       <div class="container">
         <div class="row">
           <div class="col-xl-12">
@@ -111,22 +138,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="alert" role="alert">
-                    <td scope="row"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <a href="#" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
-                      </a>
-                    </td>
-                  </tr>
+                  <?php include '../../../db_con/admin_event_reg_con.php'; ?>
                 </tbody>
               </table>
             </div>
@@ -136,9 +148,5 @@
     </section>
     <!-- JavaScript -->
     <script src="../../../assets/js/dashboard.js"></script>
-    <script src="../../../assets/js/section_content/jquery.min.js"></script>
-  <script src="../../../assets/js/section_content/popper.js"></script>
-  <script src="../../../assets/js/section_content/bootstrap.min.js"></script>
-  <script src="../../../assets/js/section_content/main.js"></script>
   </body>
 </html>
