@@ -100,9 +100,9 @@
       ?>
       <form method="post" action="../db_con/forgot_password_con.php">
         <div class="txt_field">
-          <input type="number" name="mobile_number" required>
+          <input type="email" name="email" required>
           <span></span>
-          <label>Mobile Number</label>
+          <label>Email</label>
         </div>
         <input type="submit" value="Next">
         <div class="signup_link">

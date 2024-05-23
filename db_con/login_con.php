@@ -3,17 +3,17 @@ session_start();
 require_once 'conn.php'; // Adjust the path if necessary
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $mobile_number = $_POST['mobile_number'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     // Validate if mobile number exists in the database
-    $stmt = $conn->prepare("SELECT id, password, user_type FROM user WHERE mobile_number = ?");
-    $stmt->bind_param("s", $mobile_number);
+    $stmt = $conn->prepare("SELECT id, password, user_type FROM user WHERE email = ?");
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows == 0) {
-        $_SESSION['error'] = 'Mobile number not found.';
+        $_SESSION['error'] = 'Email not found.';
         header('Location: ../php/login.php');
         exit();
     }

@@ -108,9 +108,9 @@
           <label>Last Name</label>
         </div>
         <div class="txt_field">
-          <input type="number" name="mobile_number" required>
+          <input type="email" name="email" required>
           <span></span>
-          <label>Mobile Number</label>
+          <label>Email</label>
         </div>
         <div class="txt_field">
           <input type="password" id="password" name="password" required>

@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
 }
 
 // Fetch user data from the database
-$sql = "SELECT id, first_name, last_name, mobile_number FROM user";
+$sql = "SELECT id, first_name, last_name, email FROM user";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
                 <td scope='row'>{$row['id']}</td>
                 <td>{$row['first_name']}</td>
                 <td>{$row['last_name']}</td>
-                <td>{$row['mobile_number']}</td>
+                <td>{$row['email']}</td>
                 <td>
                     <a href='../../../db_con/delete_user_con.php?id={$row['id']}' class='close' data-dismiss='alert' aria-label='Close' onclick='return confirm(\"Are you sure you want to delete this user?\");'>
                         <span aria-hidden='true'><i class='fa fa-close'></i></span>

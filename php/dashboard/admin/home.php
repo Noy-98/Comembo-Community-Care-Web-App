@@ -129,7 +129,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
                   <th>ID no.</th>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>Mobile Number</th>
+                  <th>Email</th>
                   <th>&nbsp;</th>
                 </tr>
               </thead>
