@@ -9,7 +9,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../assets/img/logo_icon.png" rel="icon">
+  <link href="assets/img/logo_icon.png" rel="icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -19,14 +19,14 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
@@ -51,23 +51,24 @@
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="../index.html" class="logo d-flex align-items-center">
+        <a href="index.html" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="../assets/img/logo_icon.png" alt="">
+          <img src="assets/img/logo_icon.png" alt="">
           <h1 class="sitename">Comembo Community Care</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="../index.html#hero" class="">Home</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#services">Services</a></li>
-            <li><a href="../index.html#team">Officials</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="index.html#hero" class="">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#team">Officials</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
             <li class="dropdown"><a><span>Portal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="../php/login.php">Login</a></li>
-                <li><a href="../php/signup.php">Signup</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="signup.php">Signup</a></li>
+                <li><a href="forgot_password.php">Forgot Password</a></li>
               </ul>
             </li>
           </ul>
@@ -98,7 +99,7 @@
         unset($_SESSION['success']); // Clear the success message
       }
       ?>
-      <form method="post" action="../db_con/forgot_password_con.php">
+      <form method="post" action="db_con/forgot_password_con.php">
         <div class="txt_field">
           <input type="email" name="email" required>
           <span></span>
@@ -106,7 +107,7 @@
         </div>
         <input type="submit" value="Next">
         <div class="signup_link">
-          Do you have Account? <a href="../php/login.php">Login</a>
+          Do you have Account? <a href="login.php">Login</a>
         </div>
       </form>
     </div>
@@ -118,8 +119,8 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6">
           <div class="footer-about">
-            <a href="../index.html" class="logo sitename">
-              <img src="../assets/img/logo_icon.png">
+            <a href="index.html" class="logo sitename">
+              <img src="assets/img/logo_icon.png">
             </a>
             <div class="footer-contact pt-3">
               <p>Anahaw St., Comembo,</p>
@@ -138,11 +139,11 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="../index.html#hero">Home</a></li>
-            <li><a href="../index.html#about">About us</a></li>
-            <li><a href="../index.html#services">Services</a></li>
-            <li><a href="../index.html#team">Officials</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#about">About us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#team">Officials</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
           </ul>
         </div>
 
@@ -158,7 +159,7 @@
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Our Newsletter</h4>
           <p>Subscribe to our newsletter and receive the latest news about our services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
+          <form action="" method="post" class="php-email-form">
             <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
             <div class="loading">Loading</div>
             <div class="error-message"></div>
@@ -187,16 +188,16 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
-  <script src="../assets/vendor/aos/aos.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="../assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

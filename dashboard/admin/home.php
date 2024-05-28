@@ -1,3 +1,21 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
+	header('Location: ../../login.php');
+	exit();
+}
+require_once __DIR__ . '/../../db_con/conn.php'; // Adjust the path if necessary
+
+// Fetch user data from the database
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT profile_picture, full_name, email FROM user WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user_data = $result->fetch_assoc();
+$stmt->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +23,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Event Barangay Post - Comembo Community Care</title>
+  <title>Dashboard - Comembo Community Care</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,7 +54,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="../../dashboard/admin/home.html" class="logo d-flex align-items-center">
+      <a href="../../dashboard/admin/home.php" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo_icon.png" alt="">
         <span class="d-none d-lg-block">Admin Dashboard</span>
       </a>
@@ -62,21 +80,21 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="../../dashboard_assets/img/profile_icon.png" alt="Profile" class="rounded-circle">
+            <img src="<?php echo htmlspecialchars($user_data['profile_picture']); ?>" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Full Name</h6>
-              <span>Email</span>
+              <h6><?php echo htmlspecialchars($user_data['full_name']); ?></h6>
+              <span><?php echo htmlspecialchars($user_data['email']); ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/admin/users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/admin/users-profile.php">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -86,7 +104,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="../../db_con/logout_con.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -106,35 +124,35 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/admin/home.html">
+        <a class="nav-link " href="../../dashboard/admin/home.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link" href="../../dashboard/admin/event_barangay_post.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/event_barangay_post.php">
           <i class="bi bi-card-list"></i>
           <span>Event Barangay Post</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/admin/event_user_registration.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/event_user_registration.php">
           <i class="bi bi-person-lines-fill"></i>
           <span>Event User Registration</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/admin/users-profile.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/users-profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="../../db_con/logout_con.php">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>
@@ -147,64 +165,78 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Event Barangay Post</h1>
+      <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../dashboard/admin/home.html">Home</a></li>
-          <li class="breadcrumb-item active">Event Barangay Post</li>
+          <li class="breadcrumb-item"><a href="../../dashboard/admin/home.php">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Create Event Post</h5>
 
-                  <form>
-                    <div class="row mb-3">
-                      <label for="inputText" class="col-sm-2 col-form-label">Event Name</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputNumber" class="col-sm-2 col-form-label">Image Upload</label>
-                      <div class="col-sm-10">
-                        <input class="form-control" type="file" id="formFile">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
-                      <div class="col-sm-10">
-                        <input type="date" class="form-control">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
-                      <div class="col-sm-10">
-                        <input type="time" class="form-control">
-                      </div>
-                    </div>
-    
-                    <div class="row mb-3">
-                      <label for="inputPassword" class="col-sm-2 col-form-label">Subject</label>
-                      <div class="col-sm-10">
-                        <textarea class="form-control" style="height: 100px"></textarea>
-                      </div>
-                    </div>
-    
-                    <div class="row mb-3">
-                      <label class="col-sm-2 col-form-label"></label>
-                      <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </div>
-                    </div>
-    
-                  </form>
-    
+    <div class="message">
+				<!-- Validation message section -->
+				<?php
+				if (session_status() == PHP_SESSION_NONE) {
+					session_start(); // Start the session if it hasn't started
+				}
+
+				// Display error messages
+				if (isset($_SESSION['error'])) {
+					echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
+					unset($_SESSION['error']); // Clear the error message
+				}
+
+				// Display success messages
+				if (isset($_SESSION['success'])) {
+					echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
+					unset($_SESSION['success']); // Clear the success message
+				}
+				?>
+			</div>
+
+            <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
                 </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">User list</h5>
+
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Profile Picture</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">User Type</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php include '../../db_con/admin_home_con.php'; ?>
+                    </tbody>
+                  </table>
+
+                </div>
+
               </div>
+            </div><!-- End Recent Sales -->
+      </div>
     </section>
 
   </main><!-- End #main -->

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - Comembo Community Care</title>
+  <title>Event User Registration - Comembo Community Care</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,9 +36,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="../../dashboard/user/home.html" class="logo d-flex align-items-center">
+      <a href="../../dashboard/admin/home.php" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo_icon.png" alt="">
-        <span class="d-none d-lg-block">User Dashboard</span>
+        <span class="d-none d-lg-block">Admin Dashboard</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -76,7 +76,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/user/users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/admin/users-profile.php">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -106,28 +106,35 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="../../dashboard/user/home.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/home.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/user/event_registration.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/event_barangay_post.php">
+          <i class="bi bi-card-list"></i>
+          <span>Event Barangay Post</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="../../dashboard/admin/event_user_registration.php">
           <i class="bi bi-person-lines-fill"></i>
-          <span>Event Registration</span>
+          <span>Event User Registration</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/user/users-profile.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/users-profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="pages-login.php">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>
@@ -140,48 +147,75 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Event User Registration</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../dashboard/user/home.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item"><a href="../../dashboard/admin/home.php">Home</a></li>
+          <li class="breadcrumb-item active">Event User Registration</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-      <!-- News & Updates Traffic -->
-      <div class="card">
-        <div class="filter">
-          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-            <li class="dropdown-header text-start">
-              <h6>Filter</h6>
-            </li>
 
-            <li><a class="dropdown-item" href="#">Today</a></li>
-            <li><a class="dropdown-item" href="#">This Month</a></li>
-            <li><a class="dropdown-item" href="#">This Year</a></li>
-          </ul>
-        </div>
+            <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
 
-        <div class="card-body pb-0">
-          <h5 class="card-title">Barangay &amp; Events <span>| Today</span></h5>
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
 
-          <div class="news">
-            <div class="post-item clearfix">
-              <img src="../../dashboard_assets/img/news-1.jpg" alt="">
-              <h4><a>Event Name</a></h4>
-              <br>
-              <p>Date: <span></span></p>
-              <p>Time: <span></span></p>
-              <p>Subject: <span></span></p>
-            </div>
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
 
-          </div><!-- End sidebar recent posts-->
+                <div class="card-body">
+                  <h5 class="card-title">User Event Registration list</h5>
 
-        </div>
-      </div><!-- End News & Updates -->
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Category</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                          </div>
+                      </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
+      </div>
     </section>
 
   </main><!-- End #main -->

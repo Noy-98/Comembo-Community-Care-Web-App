@@ -36,7 +36,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="../../dashboard/user/home.html" class="logo d-flex align-items-center">
+      <a href="../../dashboard/user/home.php" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo_icon.png" alt="">
         <span class="d-none d-lg-block">User Dashboard</span>
       </a>
@@ -76,7 +76,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/user/users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/user/users-profile.php">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -106,28 +106,28 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/user/home.html">
+        <a class="nav-link collapsed" href="../../dashboard/user/home.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link" href="../../dashboard/user/event_user_registration.html">
+        <a class="nav-link" href="../../dashboard/user/event_user_registration.php">
           <i class="bi bi-person-lines-fill"></i>
           <span>Event Registration</span>
         </a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/user/users-profile.html">
+        <a class="nav-link collapsed" href="../../dashboard/user/users-profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="pages-login.php">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>
@@ -143,7 +143,7 @@
       <h1>Event Registration</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../dashboard/user/home.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../../dashboard/user/home.php">Home</a></li>
           <li class="breadcrumb-item active">Event Registration</li>
         </ol>
       </nav>

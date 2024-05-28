@@ -35,7 +35,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="../../dashboard/admin/home.html" class="logo d-flex align-items-center">
+      <a href="../../dashboard/admin/home.php" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo_icon.png" alt="">
         <span class="d-none d-lg-block">Admin Dashboard</span>
       </a>
@@ -75,7 +75,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/admin/users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/admin/users-profile.php">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -105,28 +105,28 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/admin/home.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/home.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/admin/event_barangay_post.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/event_barangay_post.php">
           <i class="bi bi-card-list"></i>
           <span>Event Barangay Post</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/admin/event_user_registration.html">
+        <a class="nav-link collapsed" href="../../dashboard/admin/event_user_registration.php">
           <i class="bi bi-person-lines-fill"></i>
           <span>Event User Registration</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link" href="../../dashboard/admin/users-profile.html">
+        <a class="nav-link" href="../../dashboard/admin/users-profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
@@ -149,7 +149,7 @@
       <h1>Profile</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../dashboard/admin/home.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../../dashboard/admin/home.php">Home</a></li>
           <li class="breadcrumb-item">Users</li>
           <li class="breadcrumb-item active">Profile</li>
         </ol>
@@ -271,48 +271,6 @@
                       <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
-
-                </div>
-
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
-                  <!-- Settings Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="changesMade" checked>
-                          <label class="form-check-label" for="changesMade">
-                            Changes made to your account
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="newProducts" checked>
-                          <label class="form-check-label" for="newProducts">
-                            Information on new products and services
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="proOffers">
-                          <label class="form-check-label" for="proOffers">
-                            Marketing and promo offers
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
-                          <label class="form-check-label" for="securityNotify">
-                            Security alerts
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form><!-- End settings Form -->
 
                 </div>
 
