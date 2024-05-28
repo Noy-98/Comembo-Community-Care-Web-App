@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2024 at 07:47 AM
+-- Generation Time: May 29, 2024 at 12:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,11 +47,12 @@ CREATE TABLE `event_reg` (
 
 CREATE TABLE `user` (
   `id` int(15) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
+  `profile_picture` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `mobile_number` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `otp_code` varchar(50) NOT NULL,
   `user_type` varchar(6) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -59,8 +60,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `otp_code`, `user_type`) VALUES
-(4, 'Comembo Community Care', 'Administrator', 'comembocommunitycare.01@gmail.com', '$2y$10$/.cgmb0tymHNHTR53BaFwecV2UUxDqgqTLsEuYk0UXlR.2cbr4D0.', '', 'admin');
+INSERT INTO `user` (`id`, `profile_picture`, `full_name`, `email`, `mobile_number`, `address`, `password`, `user_type`) VALUES
+(4, '', 'Comembo Community Care', 'comembocommunitycare.01@gmail.com', '0917 144 0735', 'Anahaw St., Comembo, 1217. Taguig City', '$2y$10$/.cgmb0tymHNHTR53BaFwecV2UUxDqgqTLsEuYk0UXlR.2cbr4D0.', 'admin'),
+(24, '', 'Jay', 'yajaspacio@gmail.com', '', '', '$2y$10$xOdtVMGsOI1RD0EJjyxioug3NV.j8HSlTNjsE3kz2nXGqy/Qyr7EG', 'user');
 
 --
 -- Indexes for dumped tables
@@ -76,7 +78,8 @@ ALTER TABLE `event_reg`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -92,7 +95,7 @@ ALTER TABLE `event_reg`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
