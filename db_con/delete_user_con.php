@@ -13,17 +13,31 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
-    // Prepare and execute the delete statement
-    $stmt = $conn->prepare("DELETE FROM user WHERE id = ?");
-    $stmt->bind_param("i", $id);
+    // Start a transaction
+    $conn->begin_transaction();
 
-    if ($stmt->execute()) {
+    try {
+        // Prepare and execute the delete statement for the password_reset_requests table
+        $stmt1 = $conn->prepare("DELETE FROM password_reset_requests WHERE user_id = ?");
+        $stmt1->bind_param("i", $id);
+        $stmt1->execute();
+        $stmt1->close();
+
+        // Prepare and execute the delete statement for the user table
+        $stmt2 = $conn->prepare("DELETE FROM user WHERE id = ?");
+        $stmt2->bind_param("i", $id);
+        $stmt2->execute();
+        $stmt2->close();
+
+        // Commit the transaction
+        $conn->commit();
+
         $_SESSION['success'] = "User deleted successfully.";
-    } else {
-        $_SESSION['error'] = "Error deleting user.";
+    } catch (Exception $e) {
+        // Rollback the transaction in case of an error
+        $conn->rollback();
+        $_SESSION['error'] = "Error deleting user: " . $e->getMessage();
     }
-
-    $stmt->close();
 } else {
     $_SESSION['error'] = "Invalid request.";
 }
