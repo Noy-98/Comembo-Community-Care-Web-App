@@ -30,6 +30,6 @@ if (isset($_GET['id'])) {
 
 $conn->close();
 
-header('Location: /Comembo-Community-Care-Web-App/dashboard/admin/home.php');
+header('Location: ../dashboard/admin/home.php');
 exit();
 ?>
