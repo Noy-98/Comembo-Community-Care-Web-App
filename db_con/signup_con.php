@@ -41,20 +41,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->execute()) {
             $_SESSION['success'] = 'Signup successful!';
             header('Location: ../login.php');
+            exit();
         } else {
             $_SESSION['error'] = 'Error: ' . $stmt->error;
             header('Location: ../signup.php');
+            exit();
         }
         
         $stmt->close();
     } else {
         $_SESSION['error'] = 'Error: ' . $conn->error;
         header('Location: ../signup.php');
+        exit();
     }
 
     $conn->close();
 } else {
     $_SESSION['error'] = 'Invalid request method.';
     header('Location: ../signup.php');
+    exit();
 }
 ?>

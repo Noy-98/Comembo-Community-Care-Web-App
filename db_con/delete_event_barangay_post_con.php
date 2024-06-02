@@ -14,13 +14,13 @@ if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
     // Prepare and execute the delete statement
-    $stmt = $conn->prepare("DELETE FROM event_reg WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM event_barangay_post WHERE id = ?");
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        $_SESSION['success'] = "User deleted successfully.";
+        $_SESSION['success'] = "Post deleted successfully.";
     } else {
-        $_SESSION['error'] = "Error deleting user.";
+        $_SESSION['error'] = "Error deleting post.";
     }
 
     $stmt->close();
@@ -30,6 +30,6 @@ if (isset($_GET['id'])) {
 
 $conn->close();
 
-header('Location: /Comembo-Community-Care-Web-App/dashboard/admin/event_user_registration.php');
+header('Location: /Comembo-Community-Care-Web-App/dashboard/admin/event_barangay_post.php');
 exit();
 ?>

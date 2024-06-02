@@ -6,7 +6,7 @@ require_once __DIR__ . '/conn.php'; // Adjust the path if necessary
 
 // Check if user is logged in and is an admin
 if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
-    header('Location: ../../php/login.php');
+    header('Location: ../login.php');
     exit();
 }
 
@@ -30,6 +30,6 @@ if (isset($_GET['id'])) {
 
 $conn->close();
 
-header('Location: /Comembo-Community-Care-Web-App/php/dashboard/admin/home.php');
+header('Location: /Comembo-Community-Care-Web-App/dashboard/admin/home.php');
 exit();
 ?>

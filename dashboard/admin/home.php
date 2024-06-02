@@ -62,9 +62,10 @@ $stmt->close();
     </div><!-- End Logo -->
 
     <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+      <form class="search-form d-flex align-items-center" method="POST" action="#" onsubmit="return false;">
+        <input type="text" id="search-input" name="query" placeholder="Search" title="Enter search keyword" oninput="filterSearch()">
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        <div id="search-results" class="search-results"></div>
       </form>
     </div><!-- End Search Bar -->
 
@@ -262,6 +263,33 @@ $stmt->close();
 
   <!-- Template Main JS File -->
   <script src="../../dashboard_assets/js/main.js"></script>
+
+  <script>
+    const sidebarItems = [
+      { name: 'Dashboard', url: '../../dashboard/admin/home.php' },
+      { name: 'Event Barangay Post', url: '../../dashboard/admin/event_barangay_post.php' },
+      { name: 'Event User Registration', url: '../../dashboard/admin/event_user_registration.php' },
+      { name: 'Profile', url: '../../dashboard/admin/users-profile.php' }
+    ];
+
+    function filterSearch() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const resultsContainer = document.getElementById('search-results');
+      resultsContainer.innerHTML = '';
+
+      if (query) {
+        const filteredItems = sidebarItems.filter(item => item.name.toLowerCase().includes(query));
+        filteredItems.forEach(item => {
+          const div = document.createElement('div');
+          div.textContent = item.name;
+          div.onclick = () => {
+            window.location.href = item.url;
+          };
+          resultsContainer.appendChild(div);
+        });
+      }
+    }
+  </script>
 
 </body>
 

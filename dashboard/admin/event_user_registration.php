@@ -1,3 +1,21 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
+	header('Location: ../../login.php');
+	exit();
+}
+require_once __DIR__ . '/../../db_con/conn.php'; // Adjust the path if necessary
+
+// Fetch user data from the database
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT profile_picture, full_name, email FROM user WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user_data = $result->fetch_assoc();
+$stmt->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,9 +62,10 @@
     </div><!-- End Logo -->
 
     <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+      <form class="search-form d-flex align-items-center" method="POST" action="#" onsubmit="return false;">
+        <input type="text" id="search-input" name="query" placeholder="Search" title="Enter search keyword" oninput="filterSearch()">
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        <div id="search-results" class="search-results"></div>
       </form>
     </div><!-- End Search Bar -->
 
@@ -62,14 +81,14 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="../../dashboard_assets/img/profile_icon.png" alt="Profile" class="rounded-circle">
+            <img src="<?php echo htmlspecialchars($user_data['profile_picture']); ?>" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Full Name</h6>
-              <span>Email</span>
+              <h6><?php echo htmlspecialchars($user_data['full_name']); ?></h6>
+              <span><?php echo htmlspecialchars($user_data['email']); ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -86,7 +105,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="../../db_con/logout_con.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -134,7 +153,7 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.php">
+        <a class="nav-link collapsed" href="../../db_con/logout_con.php">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>
@@ -157,6 +176,27 @@
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
+
+    <div class="message">
+				<!-- Validation message section -->
+				<?php
+				if (session_status() == PHP_SESSION_NONE) {
+					session_start(); // Start the session if it hasn't started
+				}
+
+				// Display error messages
+				if (isset($_SESSION['error'])) {
+					echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
+					unset($_SESSION['error']); // Clear the error message
+				}
+
+				// Display success messages
+				if (isset($_SESSION['success'])) {
+					echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
+					unset($_SESSION['success']); // Clear the success message
+				}
+				?>
+			</div>
 
             <!-- Recent Sales -->
             <div class="col-12">
@@ -193,19 +233,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
-                          </div>
+                          <?php include '../../db_con/admin_event_reg_con.php'; ?>
                       </td>
                       </tr>
                     </tbody>
@@ -241,6 +269,33 @@
 
   <!-- Template Main JS File -->
   <script src="../../dashboard_assets/js/main.js"></script>
+
+  <script>
+    const sidebarItems = [
+      { name: 'Dashboard', url: '../../dashboard/admin/home.php' },
+      { name: 'Event Barangay Post', url: '../../dashboard/admin/event_barangay_post.php' },
+      { name: 'Event User Registration', url: '../../dashboard/admin/event_user_registration.php' },
+      { name: 'Profile', url: '../../dashboard/admin/users-profile.php' }
+    ];
+
+    function filterSearch() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const resultsContainer = document.getElementById('search-results');
+      resultsContainer.innerHTML = '';
+
+      if (query) {
+        const filteredItems = sidebarItems.filter(item => item.name.toLowerCase().includes(query));
+        filteredItems.forEach(item => {
+          const div = document.createElement('div');
+          div.textContent = item.name;
+          div.onclick = () => {
+            window.location.href = item.url;
+          };
+          resultsContainer.appendChild(div);
+        });
+      }
+    }
+  </script>
 
 </body>
 
