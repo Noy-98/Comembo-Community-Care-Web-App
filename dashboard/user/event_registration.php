@@ -133,7 +133,7 @@ $stmt->close();
 
       <li class="nav-item">
         <a class="nav-link" href="../../dashboard/user/event_user_registration.php">
-          <i class="bi bi-person-lines-fill"></i>
+        <i class="bi bi-person-vcard"></i>
           <span>Event Registration</span>
         </a>
       </li>

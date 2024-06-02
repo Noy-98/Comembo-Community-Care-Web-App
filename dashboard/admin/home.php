@@ -140,10 +140,17 @@ $stmt->close();
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="../../dashboard/admin/event_user_registration.php">
-          <i class="bi bi-person-lines-fill"></i>
+          <i class="bi bi-person-vcard"></i>
           <span>Event User Registration</span>
         </a>
       </li><!-- End Register Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="../../dashboard/admin/control.php">
+          <i class="bi bi-people"></i>
+          <span>User Control</span>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="../../dashboard/admin/users-profile.php">
@@ -269,6 +276,7 @@ $stmt->close();
       { name: 'Dashboard', url: '../../dashboard/admin/home.php' },
       { name: 'Event Barangay Post', url: '../../dashboard/admin/event_barangay_post.php' },
       { name: 'Event User Registration', url: '../../dashboard/admin/event_user_registration.php' },
+      { name: 'User Control', url: '../../dashboard/admin/control.php' },
       { name: 'Profile', url: '../../dashboard/admin/users-profile.php' }
     ];
 

@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
-  header('Location: ../../login.php');
-  exit();
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
+	header('Location: ../../login.php');
+	exit();
 }
 require_once __DIR__ . '/../../db_con/conn.php'; // Adjust the path if necessary
 
@@ -15,14 +15,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user_data = $result->fetch_assoc();
 $stmt->close();
-
-// Fetch events from the database
-$sql_events = "SELECT * FROM event_barangay_post";
-$stmt_events = $conn->prepare($sql_events);
-$stmt_events->execute();
-$result_events = $stmt_events->get_result();
-$events = $result_events->fetch_all(MYSQLI_ASSOC);
-$stmt_events->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,9 +54,9 @@ $stmt_events->close();
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="../../dashboard/user/home.php" class="logo d-flex align-items-center">
+      <a href="../../dashboard/admin/home.php" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo_icon.png" alt="">
-        <span class="d-none d-lg-block">User Dashboard</span>
+        <span class="d-none d-lg-block">Admin Dashboard</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -103,7 +95,7 @@ $stmt_events->close();
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/user/users-profile.php">
+              <a class="dropdown-item d-flex align-items-center" href="../../dashboard/admin/users-profile.php">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -133,21 +125,35 @@ $stmt_events->close();
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="../../dashboard/user/home.php">
+        <a class="nav-link collapsed" href="../../dashboard/admin/home.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/user/event_registration.php">
-        <i class="bi bi-person-vcard"></i>
-          <span>Event Registration</span>
+        <a class="nav-link collapsed" href="../../dashboard/admin/event_barangay_post.php">
+          <i class="bi bi-card-list"></i>
+          <span>Event Barangay Post</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="../../dashboard/admin/event_user_registration.php">
+          <i class="bi bi-person-vcard"></i>
+          <span>Event User Registration</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../../dashboard/user/users-profile.php">
+        <a class="nav-link" href="../../dashboard/admin/control.php">
+          <i class="bi bi-people"></i>
+          <span>User Control</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="../../dashboard/admin/users-profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
@@ -167,70 +173,80 @@ $stmt_events->close();
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>User Control</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../../dashboard/user/home.php">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item"><a href="../../dashboard/admin/home.php">Home</a></li>
+          <li class="breadcrumb-item active">User Control</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
 
-      <div class="message">
-        <!-- Validation message section -->
-        <?php
-        if (session_status() == PHP_SESSION_NONE) {
-          session_start(); // Start the session if it hasn't started
-        }
+    <div class="message">
+				<!-- Validation message section -->
+				<?php
+				if (session_status() == PHP_SESSION_NONE) {
+					session_start(); // Start the session if it hasn't started
+				}
 
-        // Display error messages
-        if (isset($_SESSION['error'])) {
-          echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
-          unset($_SESSION['error']); // Clear the error message
-        }
+				// Display error messages
+				if (isset($_SESSION['error'])) {
+					echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
+					unset($_SESSION['error']); // Clear the error message
+				}
 
-        // Display success messages
-        if (isset($_SESSION['success'])) {
-          echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
-          unset($_SESSION['success']); // Clear the success message
-        }
-        ?>
+				// Display success messages
+				if (isset($_SESSION['success'])) {
+					echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
+					unset($_SESSION['success']); // Clear the success message
+				}
+				?>
+			</div>
+
+            <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">User Control list</h5>
+
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Request Date</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php include '../../db_con/control_con.php'; ?>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
       </div>
-      <!-- News & Updates Traffic -->
-      <div class="card">
-        <div class="filter">
-          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-            <li class="dropdown-header text-start">
-              <h6>Filter</h6>
-            </li>
-
-            <li><a class="dropdown-item" href="#">Today</a></li>
-            <li><a class="dropdown-item" href="#">This Month</a></li>
-            <li><a class="dropdown-item" href="#">This Year</a></li>
-          </ul>
-        </div>
-
-        <div class="card-body pb-0">
-          <h5 class="card-title">Barangay &amp; Events <span>| Today</span></h5>
-
-          <div class="news">
-          <?php foreach ($events as $event): ?>
-          <div class="post-item clearfix">
-            <img src="<?php echo $event['image_upload']; ?>" alt="<?php echo $event['event_name']; ?>">
-            <h4><a href="#"><?php echo $event['event_name']; ?></a></h4>
-            <p>Date: <span><?php echo $event['date']; ?></span></p>
-            <p>Time: <span><?php echo $event['time']; ?></span></p>
-            <p>Subject: <span><?php echo $event['subject']; ?></span></p>
-          </div>
-        <?php endforeach; ?>
-
-          </div><!-- End sidebar recent posts-->
-
-        </div>
-      </div><!-- End News & Updates -->
     </section>
 
   </main><!-- End #main -->
@@ -259,9 +275,11 @@ $stmt_events->close();
 
   <script>
     const sidebarItems = [
-      { name: 'Dashboard', url: '../../dashboard/user/home.php' },
-      { name: 'Event Registration', url: '../../dashboard/user/event_registration.php' },
-      { name: 'Profile', url: '../../dashboard/user/users-profile.php' }
+      { name: 'Dashboard', url: '../../dashboard/admin/home.php' },
+      { name: 'Event Barangay Post', url: '../../dashboard/admin/event_barangay_post.php' },
+      { name: 'Event User Registration', url: '../../dashboard/admin/event_user_registration.php' },
+      { name: 'User Control', url: '../../dashboard/admin/control.php' },
+      { name: 'Profile', url: '../../dashboard/admin/users-profile.php' }
     ];
 
     function filterSearch() {

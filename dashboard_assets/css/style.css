@@ -949,6 +949,23 @@ h6 {
   padding: 10px 0 0 0;
 }
 
+.table tbody tr td .status {
+	font-size: 10px;
+	padding: 6px 16px;
+	color: #fff;
+	border-radius: 20px;
+	font-weight: 700;
+}
+.dashboard .recent-sales .table tbody tr td .status.completed {
+	background: #031cfc;
+}
+.dashboard .recent-sales .table tbody tr td .status.process {
+	background: #fceb03;
+}
+.dashboard .recent-sales .table tbody  tr td .status.pending {
+	background: #fc0303;
+}
+
 /* Top Selling */
 .dashboard .top-selling {
   font-size: 14px;
