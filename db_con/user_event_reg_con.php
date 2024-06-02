@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
-    header('Location: ../../login.php');
+    header('Location: ../login.php');
     exit();
 }
 
-include 'conn.php';
+require_once __DIR__ . '../../db_con/conn.php'; // Adjust the path if necessary
 
 // Initialize error array
 $errors = [];
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Execute the statement
         if ($stmt->execute()) {
             $_SESSION['success'] = "Registration successful!";
-            header('Location: /Comembo-Community-Care-Web-App/php/dashboard/user/user_reg.php');
+            header('Location: ../dashboard/user/event_registration.php');
             exit();
         } else {
             $errors[] = "Database error: Could not register.";
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->close();
     } else {
         $_SESSION['error'] = implode('<br>', $errors);
-        header('Location: /Comembo-Community-Care-Web-App/php/dashboard/user/user_reg.php');
+        header('Location: ../dashboard/user/event_registration.php');
         exit();
     }
 }
