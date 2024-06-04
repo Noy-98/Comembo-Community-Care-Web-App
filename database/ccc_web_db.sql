@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2024 at 12:06 AM
+-- Generation Time: Jun 02, 2024 at 09:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,8 +61,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `profile_picture`, `full_name`, `email`, `mobile_number`, `address`, `password`, `user_type`) VALUES
-(4, '', 'Comembo Community Care', 'comembocommunitycare.01@gmail.com', '0917 144 0735', 'Anahaw St., Comembo, 1217. Taguig City', '$2y$10$/.cgmb0tymHNHTR53BaFwecV2UUxDqgqTLsEuYk0UXlR.2cbr4D0.', 'admin'),
-(24, '', 'Jay', 'yajaspacio@gmail.com', '', '', '$2y$10$xOdtVMGsOI1RD0EJjyxioug3NV.j8HSlTNjsE3kz2nXGqy/Qyr7EG', 'user');
+(4, '../../uploads/admin/profile/4.png', 'Comembo Community Care', 'comembocommunitycare.01@gmail.com', '0917 144 0735', 'Anahaw St., Comembo, 1217. Taguig City', '$2y$10$ghudv5H44hO8co5/dKBjh.cZtdOI/IQyqWthbRf.2b6vzx/UpZMD2', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -89,13 +88,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `event_reg`
 --
 ALTER TABLE `event_reg`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
